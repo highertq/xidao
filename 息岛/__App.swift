@@ -1,17 +1,20 @@
-//
-//  __App.swift
-//  息岛
-//
-//  Created by Qing on 2026/3/17.
-//
-
 import SwiftUI
 
 @main
-struct __App: App {
+struct 息岛App: App {
+    @State private var showSplash = true
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ZStack {
+                ContentView()
+                
+                if showSplash {
+                    SplashView(isActive: $showSplash)
+                        .transition(.opacity)
+                        .zIndex(1)
+                }
+            }
         }
     }
 }
